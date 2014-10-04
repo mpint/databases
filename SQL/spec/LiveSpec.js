@@ -14,7 +14,7 @@ describe("Persistent Node Chat Server", function() {
       user: "adamike",
       // and password.
       password: "password",
-      database: "chat"
+      database: "chatbox"
     });
     dbConnection.connect();
 
@@ -41,7 +41,7 @@ describe("Persistent Node Chat Server", function() {
               /* Now if we look in the database, we should find the
                * posted message there. */
 
-              var queryString = "";
+              var queryString = "select * from messages;";
               var queryArgs = [];
               /* TODO: Change the above queryString & queryArgs to match your schema design
                * The exact query string and query args to use
@@ -51,7 +51,7 @@ describe("Persistent Node Chat Server", function() {
                 function(err, results) {
                   // Should have one result:
                   expect(results.length).to.equal(1);
-                  expect(results[0].text).to.equal("In mercy's name, three days is all I need.");
+                  expect(results[0].message).to.equal("In mercy's name, three days is all I need.");
                   /* TODO: You will need to change these tests if the
                    * column names in your schema are different from
                    * mine! */

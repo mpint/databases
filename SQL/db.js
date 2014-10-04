@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-var mysql = require('mysql');
+
 /* If the node mysql module is not found on your system, you may
  * need to do an "sudo npm install -g mysql". */
 
@@ -9,7 +9,7 @@ var mysql = require('mysql');
 var dbConnection = mysql.createConnection({
   user: "adamike",
   password: "password",
-  database: "chat"
+  database: "chatbox"
 });
 
 dbConnection.connect();
@@ -22,13 +22,22 @@ dbConnection.connect();
 
 
 exports.findAllMessages = function(cb){
+  var queryString = 'SELECT message FROM messages;';
+  dbConnection.query(queryString, cb);
 };
 
 exports.findUser = function(username, cb){
+  var queryString = 'SELECT username FROM users WHERE username = ' + username +';';
+  dbConnection.query(queryString, cb);
 };
 
 exports.saveUser = function(username, cb){
+  console.log(username);
+  var queryString = 'INSERT into users (username) values (' + username + ');';
+  dbConnection.query(queryString, cb);
 };
 
 exports.saveMessage = function(message, userid, roomname, cb){
+  var queryString = 'INSERT into messages (username, message, roomname) values (' + username + ', ' + message +', ' + roomname + ');';
+  dbConnection.query(queryString, cb);
 };
