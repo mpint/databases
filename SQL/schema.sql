@@ -4,23 +4,24 @@ USE chat;
 
 CREATE TABLE messages (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  content VARCHAR(20),
+  content VARCHAR(142),
   user_id INTEGER,
   room_id INTEGER,
   createdAt TIMESTAMP,
   PRIMARY KEY (id)
 );
 
--- CREATE TABLE rooms (
-  -- id INTEGER NOT NULL AUTO_INCREMENT,
-  -- roomname VARCHAR,
-  -- PRIMARY KEY (id)
--- );
+CREATE TABLE rooms (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  roomname VARCHAR(50),
+  PRIMARY KEY (id)
+);
 
--- CREATE TABLE users (
-  -- id INTEGER NOT NULL AUTO_INCREMENT,
-  -- username VARCHAR
--- );
+CREATE TABLE users (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  username VARCHAR(20),
+  PRIMARY KEY (id)
+);
 
 -- Which documentation is correct for 5.6?
   -- tutorial, oracle, or schema generator
