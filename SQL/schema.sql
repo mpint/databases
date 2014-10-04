@@ -3,12 +3,12 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  -- id INTEGER NOT NULL AUTO_INCREMENT,
+  id INTEGER NOT NULL AUTO_INCREMENT,
   content VARCHAR(20),
   user_id INTEGER,
-  createdAt TIMESTAMP
-  -- room_id INTEGER,
-  -- PRIMARY KEY (id)
+  room_id INTEGER,
+  createdAt TIMESTAMP,
+  PRIMARY KEY (id)
 );
 
 -- CREATE TABLE rooms (
