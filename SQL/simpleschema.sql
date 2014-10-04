@@ -9,7 +9,9 @@ CREATE TABLE messages (
 );
 
 CREATE TABLE users (
-  username VARCHAR(20)
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  username VARCHAR(20),
+  PRIMARY KEY (id)
 );
 
 
