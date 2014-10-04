@@ -28,19 +28,18 @@ exports.findAllMessages = function(cb){
 
 exports.findUser = function(username, cb){
 
-  var queryString = "SELECT username FROM users WHERE username = '" + username + "';";
-  dbConnection.query(queryString, cb);
+  var queryString = "SELECT username FROM users WHERE username = ?;";
+  dbConnection.query(queryString, [username], cb);
 };
 
 exports.saveUser = function(username, cb){
 
-  var queryString = "INSERT into users (username) value ('" + username + "');";
-  var queryStringg = 'SELECT * FROM users;';
-  dbConnection.query(queryString, cb);
+  var queryString = "INSERT into users (username) value (?);";
+  dbConnection.query(queryString, [username], cb);
 };
 
 exports.saveMessage = function(message, username, roomname, cb){
   console.log('Got to saveMessage!!!!');
-  var queryString = "INSERT into messages (username, message, roomname) values ('" + username +"', '" + message + "', '" + roomname + "');";
-  dbConnection.query(queryString, cb);
+  var queryString = "INSERT into messages (username, message, roomname) values (?, ?, ?);";
+  dbConnection.query(queryString, [username, message, roomname], cb);
 };
