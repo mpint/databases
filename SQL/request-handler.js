@@ -13,7 +13,6 @@ exports.postMessage = function(req, res) {
   var message;
 
   var resultsCallback = function (results) {
-    console.log('resultsCallback', results);
       var chat = {
         message: message.message,
         userid: results[0].id,
@@ -28,7 +27,6 @@ exports.postMessage = function(req, res) {
   parseData(req, function(_, msg) {
       message = msg;
       findUser(msg.username, function (err, results) {
-        console.log(msg.username,'findUser', results);
 
         // no results/0 results
         if (!results || !results.length) {
