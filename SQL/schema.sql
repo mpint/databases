@@ -3,18 +3,30 @@ CREATE DATABASE chat;
 USE chat;
 
 CREATE TABLE messages (
-  /* Describe your table here.*/
+  -- id INTEGER NOT NULL AUTO_INCREMENT,
+  content VARCHAR(20),
+  user_id INTEGER,
+  createdAt TIMESTAMP
+  -- room_id INTEGER,
+  -- PRIMARY KEY (id)
 );
 
-/* Create other tables and define schemas for them here! */
+-- CREATE TABLE rooms (
+  -- id INTEGER NOT NULL AUTO_INCREMENT,
+  -- roomname VARCHAR,
+  -- PRIMARY KEY (id)
+-- );
 
+-- CREATE TABLE users (
+  -- id INTEGER NOT NULL AUTO_INCREMENT,
+  -- username VARCHAR
+-- );
 
+-- Which documentation is correct for 5.6?
+  -- tutorial, oracle, or schema generator
+  -- why don't they match and how can we make them
 
-
-/*  Execute this file from the command line by typing:
- *    mysql < schema.sql
- *  to create the database and the tables.*/
-
-
+-- every time we unsuccessfully create a table, we need to erase
+-- the database, then restart mysql...is there a workaround?
 
 
