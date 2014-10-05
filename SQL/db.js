@@ -35,7 +35,7 @@ exports.findUser = function(username, cb){
 exports.saveUser = function(username, cb){
 
   var queryString = "INSERT into users (username) value (?);";
-  dbConnection.query(queryString, [username], cb);
+  dbConnection.query(queryString, [username], cb([{username: username}]));
 };
 
 exports.saveMessage = function(message, username, roomname, cb){
